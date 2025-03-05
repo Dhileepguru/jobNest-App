@@ -1,1 +1,16 @@
 @import "tailwindcss";
+
+
+body{
+    color: whitesmoke ;
+    opacity: 90%;
+    background-image: url('/images/Background.png');
+    background-size: cover;
+    background-position:center;
+    height: 92vh;
+   
+}
+.nav
+{
+    background-color: aqua;
+}
