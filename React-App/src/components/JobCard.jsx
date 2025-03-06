@@ -6,14 +6,12 @@ function JobCard(props)
     let  dateDiff = Date1.diff(dayjs(props.postedOn), 'day');
 
     
-    
-
         return(
         <div className= " hover:border-blue-500 hover:translate-y-1 hover:scale-103 bg-white mx-40 mb-4 rounded-md  border-amber-200">
             <div className='flex justify-between items-center px-6 py-4 border-black shadow-lg  '>
              <div className='flex flex-col items-start gap-3'>
                 <h1 className='text-lg font-semibold'>{props.title}</h1>
-                <p>{props.type} - {props.experience} - {props.location}</p>
+                <p>{props.type} - {props.experience || " Not Specified"} - {props.location}</p>
                  <div className='flex items-center gap-2'>
                     {props.skills.map((ele)=>
                         <p key={ele} className='text-gray-500 py-1 px-2 border rounded-md border-black'>{ele}</p>
