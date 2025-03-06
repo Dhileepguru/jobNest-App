@@ -10,13 +10,16 @@ function SearchBar(props)
     })
     const handleChange =(e)=>
     {
-        setjobCriteria((prevState)=>({
-            ...prevState,[e.target.name]:e.target.value
-        }));
+       setjobCriteria((prev)=>(
+    {
+        ...prev,
+        [e.target.name]: e.target.value
+    }))
     
     }
     const search =async()=>{
-        await props.fetchJobsCustom(jobCriteria);
+        console.log("Job Criteria:", jobCriteria);
+        await props.CustomFetchData(jobCriteria);
     }
 
     return(
@@ -26,7 +29,7 @@ function SearchBar(props)
                 <option value="Front end" >Front end</option>
                 <option value="UI/UX Designer" >UI/UX Designer</option>
                 <option value="Android Developer" >Android Developer</option>
-                <option value="Back End Developer" >Back End Developer</option>
+                <option value="Back end Developer" >Back End Developer</option>
             </select>
             <select onChange={handleChange} name="type" value={jobCriteria.type} className="w-64 bg-zinc-200 rounded-md py-3 pl-4 ml-2">
                 <option value="" disabled hidden selected>Job Type</option>
