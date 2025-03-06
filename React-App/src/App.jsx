@@ -12,8 +12,12 @@ import { db } from './firebase.config.js'
 
 function App() {
   const [jobs,setJobs]=useState([]);
+  const [customData,setCustomData]=useState(false);
+
+
   const fetchData = async()=>
   {
+    setCustomData(false);
     const tempJobs=[];
     const q = query(collection(db, "jobs"));
     const querySnapshot = await getDocs(q);
@@ -32,6 +36,7 @@ function App() {
   },[])
 
   const CustomFetchData = async (jobCriteria) => {
+    setCustomData(true);
     console.log("Fetching jobs with criteria:", jobCriteria);
 
     const tempJobs = [];
@@ -75,6 +80,11 @@ function App() {
       <NavBar />
       <Header />
       <SearchBar CustomFetchData={CustomFetchData} />
+      {customData && 
+        <button className="flex pl-[1200px] mb-2" onClick={fetchData}>
+          <p className='bg-gray-950 text-white rounded-md px-10 py-2 '>Clear Filters</p></button>  
+      }
+      
       {jobs.map((job)=> // title={job.title}  company={job.company} type={job.type} experience={job.experience} location={job.location} skills={job.skills} jobLinks={job.jobLinks}
         <JobCard key={job.id} {...job}/>//spread operator
       )}
