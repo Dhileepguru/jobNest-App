@@ -7,7 +7,11 @@ function Home()
         <>
         
         <div className="bg-white h-screen">
-            <img className="w-50" src="/images/Logo.png"></img>
+            <div className="flex ">
+            <img className=" flex w-50" src="/images/Logo.png"></img>
+            <button className="flex w-full pt-7 font-bold justify-end mt-5 mr-10 rounded-md ">Sign Up</button>
+            </div>
+
             <div>
             <h1 className="mt-20  text-center text-blue-900  text-7xl font-bold text-5xl opacity-90 text-bl ">Find Your Dream Job <br></br>and Step into Job Nest !</h1>
             <p className="text-center mt-10 text-2xl">Explore job listings or find the perfect candidate</p> 
