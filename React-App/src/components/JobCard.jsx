@@ -3,7 +3,9 @@ function JobCard(props)
 {   
     let arraySkills=["Javascript","React js" ,"Nodejs"];
     let Date1 = dayjs(Date.now());
-    let dateDiff= Date1.diff(dayjs(props.postedOn),'day');
+    let  dateDiff = Date1.diff(dayjs(props.postedOn), 'day');
+
+    
     
 
         return(
@@ -19,7 +21,7 @@ function JobCard(props)
                  </div>
                  </div>
                  <div className='flex items-center gap-4'>
-                   <p className='text-gray-500 mt-5'>Posted {dateDiff} Days Ago</p>
+                   <p className='text-gray-500 mt-5'>Posted {dateDiff } Days Ago</p>
                     <button href={props.jobLinks} className="text-blue-500 mt-4 border rounded-md py-2 px-10">Apply</button>
                 </div>
             </div>
