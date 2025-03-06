@@ -1,7 +1,7 @@
 export default [
         {
             id:1,
-            postedOn:"2025-3-3",
+            postedOn:"2025-2-25",
             title:'Front end Developer',
             company:'Amazon',
             type:'Full Time',
@@ -12,7 +12,7 @@ export default [
         },
         {
             id:2,
-            postedOn: "2025-3-3",
+            postedOn: "2025-2-28",
             title:'Back end Developer',
             company:'Amazon',
             type:'Full Time',
