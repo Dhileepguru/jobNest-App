@@ -5,6 +5,7 @@ import Header from './components/Header'
 import SearchBar from './components/SearchBar'
 import JobCard from './components/JobCard'
 import JobData from './components/JobDummyData'
+import Login from './pages/Login'
 
 
 import { collection, query, where, getDocs, orderBy } from "firebase/firestore"; 
@@ -77,6 +78,7 @@ function App() {
 
   return (
     <>
+      <Login />
       <NavBar />
       <Header />
       <SearchBar CustomFetchData={CustomFetchData} />
