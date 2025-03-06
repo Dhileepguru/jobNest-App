@@ -1,6 +1,4 @@
 import { useEffect, useState } from 'react'
-
-
 import './App.css'
 import NavBar from './components/Navbar'
 import Header from './components/Header'
@@ -21,7 +19,8 @@ function App() {
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((job) => {
      tempJobs.push({...job.data(),
-      id:job.id
+      id:job.id,
+      postedOn: job.data().postedOn.toDate(),
      })
     });
     setJobs(tempJobs);
@@ -30,12 +29,36 @@ function App() {
   {
     fetchData();
   },[])
+
+  const fetchJobsCustom = async (jobCriteria) => {
+    try {
+      let jobsRef = collection(db, "jobs");
+      let q = jobsRef;
+      if (jobCriteria.title) q = query(q, where("title", "==", jobCriteria.title));
+      if (jobCriteria.type) q = query(q, where("type", "==", jobCriteria.type));
+      if (jobCriteria.location) q = query(q, where("location", "==", jobCriteria.location));
+      if (jobCriteria.experience) q = query(q, where("experience", "==", jobCriteria.experience));
+  
+      const querySnapshot = await getDocs(q);
+      const tempJobs = querySnapshot.docs.map((job) => ({
+        ...job.data(),
+        id: job.id,
+        postedOn: job.data().postedOn.toDate(),
+      }));
+  
+      setJobs(tempJobs);
+    } catch (error) {
+      console.error("Error fetching jobs:", error);
+    }
+  };
+  
+  
   
   return (
     <>
       <NavBar />
       <Header />
-      <SearchBar />
+      <SearchBar  fetchJobsCustom={fetchJobsCustom}/>
       {jobs.map((job)=> // title={job.title}  company={job.company} type={job.type} experience={job.experience} location={job.location} skills={job.skills} jobLinks={job.jobLinks}
         <JobCard key={job.id} {...job}/>//spread operator
       )}
