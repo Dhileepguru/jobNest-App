@@ -11,6 +11,9 @@ function Login()
         e.preventDefault();
         alert("Account Created");
     }
+    function NavApp(){
+        window.location.href="/app";
+    }
 
     return(
         <>
@@ -43,11 +46,11 @@ function Login()
                                 onChange={(e)=>setEmail(e.target.value)} placeholder="Email" required
                             />
                             <input className="border-0 py-2 border-b-2 px-2 focus:outline-none focus:border-blue-500"
-                                type="password" value={password} placeholder="Password" required
+                                type="password" value={password} placeholder="Password" onChange={(e)=>setPassword(e.target.value)}
                             />
-                            <Link required to="/app" type="submit" className="bg-blue-300 text-center text-white rounded-md border w-full h-10 px-5 py-1.5 mt-6">
+                            <button onClick={NavApp} type="submit" className="bg-blue-300 text-center text-white rounded-md border w-full h-10 px-5 py-1.5 mt-6">
                                 Sign Up
-                            </Link>
+                            </button>
                         </form>
 
                         <p className="text-gray-600 mt-4 text-sm">Don't have an account?
