@@ -12,7 +12,7 @@ function Login()
         alert("Account Created");
     }
     function NavApp(){
-        window.location.href="/app";
+        window.location.href="/RoleSelection";
     }
 
     return(
@@ -33,7 +33,7 @@ function Login()
                     
                     
                     <div className="w-1/2 flex justify-center items-center p-5">
-                        <img src="/public/images/Login.png" className="w-full h-auto object-cover" alt="Login"/>
+                        <img src="/images/Login.png" className="w-full h-auto object-cover" alt="Login"/>
                     </div>
 
                     
