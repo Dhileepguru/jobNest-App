@@ -7,6 +7,18 @@ function JobCard(props)
 
     
         return(
+        <>
+        <style>
+            {`
+            body{
+             background-image: url('/images/Background.png');
+             background-size: cover;
+             background-position:center;
+             height: 92vh;
+             }`
+
+            }
+        </style>
         <div className= " hover:border-blue-500 hover:translate-y-1 hover:scale-103 bg-white mx-40 mb-4 rounded-md  border-amber-200">
             <div className='flex justify-between items-center px-6 py-4 border-black shadow-lg  '>
              <div className='flex flex-col items-start gap-3'>
@@ -24,6 +36,7 @@ function JobCard(props)
                 </div>
             </div>
         </div>
+        </>
         )
     }
     export default JobCard
