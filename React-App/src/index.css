@@ -1,11 +1,2 @@
 @import "tailwindcss";
 
-
-body{
-    
-    background-image: url('/images/Background.png');
-    background-size: cover;
-    background-position:center;
-    height: 92vh;
-   
-}
