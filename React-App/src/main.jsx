@@ -5,6 +5,7 @@ import App from './App.jsx'
 import Home from './pages/Home.jsx'
 import Login from './pages/Login.jsx'
 import Register from './pages/Register.jsx'
+import RoleSelection from './pages/RoleSelection.jsx'
 import { createBrowserRouter  , RouterProvider } from 'react-router-dom'
 
 
@@ -21,6 +22,10 @@ const router =createBrowserRouter([
   {
     path: '/register',
     element:<Register />
+  },
+  {
+    path:'/RoleSelection',
+    element:<RoleSelection />
   },
   {
     path : '/app',
