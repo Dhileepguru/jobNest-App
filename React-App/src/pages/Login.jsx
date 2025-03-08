@@ -1,15 +1,27 @@
 import { Link } from "react-router-dom";
 import '../login.css'
 import { useState } from 'react';
+import { auth } from "../firebase.config.js"; 
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 function Login()
 {
     let [email,setEmail]=useState("");
     let [password,setPassword]=useState("");
    
-    const handleLogin=(e) => {
+    const handleLogin=async(e) => {
         e.preventDefault();
-        alert("Account Created");
+        try
+        {
+            await signInWithEmailAndPassword(auth,email,password);
+            console.log(signInWithEmailAndPassword(auth,email,password));
+            window.location.href="/RoleSelection";
+        }
+        catch(e)
+        {
+            console.log(e);
+            alert("Error in logging in");
+        }
     }
     function NavApp(){
         window.location.href="/RoleSelection";
@@ -48,7 +60,7 @@ function Login()
                             <input className="border-0 py-2 border-b-2 px-2 focus:outline-none focus:border-blue-500"
                                 type="password" value={password} placeholder="Password" onChange={(e)=>setPassword(e.target.value)}
                             />
-                            <button onClick={NavApp} type="submit" className="bg-blue-300 text-center text-white rounded-md border w-full h-10 px-5 py-1.5 mt-6">
+                            <button type="submit" className="bg-blue-300 text-center text-white rounded-md border w-full h-10 px-5 py-1.5 mt-6">
                                 Sign Up
                             </button>
                         </form>
