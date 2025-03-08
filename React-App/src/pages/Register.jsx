@@ -1,14 +1,27 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { auth } from "../firebase.config.js"; 
+import { createUserWithEmailAndPassword } from "firebase/auth";
+
+
 
 function Register() {
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
 
-  function accCreated(e) {
+  let accCreated =async(e)=> {
     e.preventDefault();
-    alert("Account Created");
-    window.location.href="/RoleSelection";
+    try
+    {
+      await createUserWithEmailAndPassword(auth, email, password);
+      alert("Account Created");
+      window.location.href="/RoleSelection";
+    }
+    catch(e)
+    {
+      console.log(e);
+      alert("Error in creating account");  
+    }
   }
 
   return (
